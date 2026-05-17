@@ -1,0 +1,15 @@
+🔴 1	Fotografie reală (înlocuiește toate placeholders)	1-2 zile + sesiune foto	Masiv
+🔴 2	Booking embed (Calendly/Calendis)	2-3 ore	Masiv
+🔴 3	Google Reviews integration	4-6 ore	Mare
+🔴 4	"How it works" timeline section	1 zi	Mare
+🟠 5	Hero video/animation	2-3 zile	Mare
+🟠 6	Body diagram interactiv	2-3 zile	Mare
+🟠 7	Sistem ilustrativ custom (iconițe + pattern signature)	3-5 zile	Mare
+🟠 8	Sticky mobile CTA bar	2 ore	Mediu
+🟠 9	Schema.org + OG images	4-6 ore	SEO huge
+🟡 10	Blog/resurse section + 5 articole	1 săptămână	SEO long-term
+🟡 11	Dark mode + cursor custom	1 zi	Mediu
+🟡 12	View transitions API + skeleton screens	1-2 zile	Mediu
+🟢 13	AI chat concierge	3-5 zile	Mediu
+🟢 14	Multi-language (EN)	1-2 zile	Mediu
+🟢 15	Patient portal mockup	2-3 zile	Mic-mediu

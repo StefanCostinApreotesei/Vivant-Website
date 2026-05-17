@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n-title="page.indexTitle">Vivant Osteo & Physio — Clinică de Osteopatie și Fizioterapie, Iași</title>
+  <meta name="description" content="Clinică de osteopatie și fizioterapie în Iași. Tratamente personalizate pentru durere, recuperare și mobilitate. Luni–Vineri 09:00–17:00. Tel: 0746 865 189">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ════════ NAVBAR ════════ -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo">
+        <img src="logo.png" alt="Vivant Osteo & Physio">
+      </a>
+      <div class="navbar-links">
+        <a href="index.html"      class="navbar-link" data-i18n="nav.home">Acasă</a>
+        <a href="despre.html"     class="navbar-link" data-i18n="nav.about">Despre noi</a>
+        <a href="servicii.html"   class="navbar-link" data-i18n="nav.services">Servicii</a>
+        <a href="afectiuni.html"  class="navbar-link" data-i18n="nav.conditions">Afecțiuni</a>
+        <a href="preturi.html"    class="navbar-link" data-i18n="nav.pricing">Prețuri</a>
+        <a href="faq.html"        class="navbar-link" data-i18n="nav.faq">FAQ</a>
+        <a href="contact.html"    class="navbar-link" data-i18n="nav.contact">Contact</a>
+        <a href="contact.html"    class="btn btn-primary navbar-cta" data-booking-trigger data-i18n="nav.bookNow">Programează-te</a>
+        <button type="button" class="lang-toggle" aria-label="Switch to English">
+          <span data-lang-current>RO</span><span data-lang-sep>/</span><span data-lang-other>EN</span>
+        </button>
+      </div>
+      <button class="navbar-hamburger" aria-label="Meniu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ════════ MOBILE DRAWER ════════ -->
+  <div class="mobile-overlay"></div>
+  <aside class="mobile-drawer">
+    <a href="index.html"     data-i18n="nav.home">Acasă</a>
+    <a href="despre.html"    data-i18n="nav.about">Despre noi</a>
+    <a href="servicii.html"  data-i18n="nav.services">Servicii</a>
+    <a href="afectiuni.html" data-i18n="nav.conditions">Afecțiuni</a>
+    <a href="preturi.html"   data-i18n="nav.pricing">Prețuri</a>
+    <a href="faq.html"       data-i18n="nav.faq">FAQ</a>
+    <a href="contact.html"   data-i18n="nav.contact">Contact</a>
+    <a href="contact.html"   class="btn btn-primary" data-booking-trigger data-i18n="nav.bookNow">Programează-te</a>
+    <button type="button" class="lang-toggle" aria-label="Switch to English">
+      <span data-lang-current>RO</span><span data-lang-sep>/</span><span data-lang-other>EN</span>
+    </button>
+  </aside>
+
+  <!-- ════════ HERO (light, premium) ════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="section-label" data-i18n="hero.eyebrow">Clinică de Osteopatie & Fizioterapie · Iași</span>
+      <hr class="section-divider">
+      <h1 data-i18n-html="hero.titleHtml">
+        Redescoperă mișcarea.
+        <span class="italic">Redescoperă viața.</span>
+      </h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">
+        La Vivant, fiecare tratament începe cu ascultare și se construiește în jurul nevoilor tale unice.
+      </p>
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn btn-primary btn-lg" data-booking-trigger data-i18n="hero.ctaPrimary">Programează-te acum</a>
+        <a href="servicii.html" class="btn btn-ghost-dark btn-lg" data-i18n="hero.ctaSecondary">Descoperă serviciile</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label" data-i18n="hero.metaPhone">Telefon</span>
+          <a href="tel:0746865189" class="hero-meta-value">0746 865 189</a>
+        </div>
+        <div class="hero-meta-divider"></div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label" data-i18n="hero.metaSchedule">Program</span>
+          <span class="hero-meta-value" data-i18n="hero.scheduleValue">Lun – Vin · 09 – 17</span>
+        </div>
+      </div>
+    </div>
+    <a href="#trust" class="hero-scroll" aria-label="Derulează în jos">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </a>
+  </section>
+
+  <!-- ════════ TRUST BAR ════════ -->
+  <section id="trust" class="trust-bar">
+    <div class="trust-grid">
+      <div class="fade-in">
+        <div class="trust-number"><span data-counter="500" data-suffix="+">0</span></div>
+        <div class="trust-label" data-i18n="trust.patientsLabel">Pacienți tratați</div>
+      </div>
+      <div class="fade-in">
+        <div class="trust-number"><span data-counter="5" data-suffix="+">0</span></div>
+        <div class="trust-label" data-i18n="trust.yearsLabel">Ani experiență</div>
+      </div>
+      <div class="fade-in">
+        <div class="trust-number"><span data-counter="3">0</span></div>
+        <div class="trust-label" data-i18n="trust.specialistsLabel">Specialiști</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ DESPRE VIVANT ════════ -->
+  <section class="split">
+    <div class="split-inner">
+      <div class="split-image fade-in">
+        <img src="https://placehold.co/600x700/efebdb/1a1a17?text=Clinic%C4%83+Vivant" alt="Interior clinică Vivant">
+      </div>
+      <div class="split-content fade-in">
+        <span class="section-label" data-i18n="about.eyebrow">Despre Vivant</span>
+        <h2 data-i18n="about.title">Mai mult decât un cabinet medical.</h2>
+        <p data-i18n="about.p1">Vivant este un spațiu dedicat oamenilor care vor să își recâștige libertatea de mișcare. Combinăm osteopatia, fizioterapia și kinetoterapia într-o abordare integrată, care tratează cauza durerii — nu doar simptomul.</p>
+        <p data-i18n="about.p2">Filozofia noastră se bazează pe o întâlnire reală cu fiecare pacient: ascultăm povestea ta, evaluăm posturalitatea, înțelegem stilul de viață, apoi construim un plan care îți redă mobilitatea și încrederea în propriul corp.</p>
+        <p data-i18n="about.p3">Echipa Vivant unește experiența clinică cu cele mai recente cercetări internaționale, oferind tratamente care funcționează și durează în timp.</p>
+        <ul class="split-points">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span data-i18n="about.bullet1">Abordare personalizată pentru fiecare pacient</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span data-i18n="about.bullet2">Tehnici validate și bazate pe evidență clinică</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span data-i18n="about.bullet3">Programare flexibilă, fără liste de așteptare lungi</span>
+          </li>
+        </ul>
+        <a href="despre.html" class="btn btn-ghost-dark" data-i18n="about.ctaTeam">Cunoaște echipa noastră →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ SERVICII PREVIEW ════════ -->
+  <section class="services-section">
+    <div class="section-header fade-in">
+      <span class="section-label" data-i18n="services.eyebrow">Ce facem</span>
+      <h2 data-i18n="services.title">Serviciile noastre</h2>
+      <p data-i18n="services.subtitle">Tehnici complementare care lucrează împreună pentru a-ți reda mobilitatea, echilibrul și starea de bine.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M5 7l7-5 7 5M5 17l7 5 7-5"></path></svg></div>
+        <h3 data-i18n="services.osteopathyTitle">Osteopatie</h3>
+        <p data-i18n="services.osteopathyDesc">Tehnici manuale subtile care restabilesc echilibrul corpului prin abordarea sistemului musculo-scheletic și visceral.</p>
+        <a href="servicii.html" class="service-link" data-i18n="services.details">Detalii →</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v6m0 10v6M4.22 4.22l4.24 4.24m7.08 7.08l4.24 4.24M1 12h6m10 0h6M4.22 19.78l4.24-4.24m7.08-7.08l4.24-4.24"></path></svg></div>
+        <h3 data-i18n="services.physioTitle">Fizioterapie</h3>
+        <p data-i18n="services.physioDesc">Programe terapeutice individualizate care folosesc mișcarea și exercițiul pentru recuperarea funcțională completă.</p>
+        <a href="servicii.html" class="service-link" data-i18n="services.details">Detalii →</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path><path d="M3 3l18 18"></path></svg></div>
+        <h3 data-i18n="services.kinetoTitle">Kinetoterapie</h3>
+        <p data-i18n="services.kinetoDesc">Exerciții terapeutice supravegheate, concepute pentru a reeduca mușchii și a restabili amplitudinea de mișcare.</p>
+        <a href="servicii.html" class="service-link" data-i18n="services.details">Detalii →</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
+        <h3 data-i18n="services.manualTitle">Terapie Manuală</h3>
+        <p data-i18n="services.manualDesc">Mobilizări articulare și tehnici de țesut moale pentru reducerea durerii și creșterea mobilității.</p>
+        <a href="servicii.html" class="service-link" data-i18n="services.details">Detalii →</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
+        <h3 data-i18n="services.massageTitle">Masaj Terapeutic</h3>
+        <p data-i18n="services.massageDesc">Tehnici de relaxare profundă și decontracturare care eliberează tensiunea musculară acumulată.</p>
+        <a href="servicii.html" class="service-link" data-i18n="services.details">Detalii →</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+        <h3 data-i18n="services.postopTitle">Recuperare Post-Op</h3>
+        <p data-i18n="services.postopDesc">Programe specializate pentru reabilitarea după intervenții chirurgicale ortopedice sau traumatisme severe.</p>
+        <a href="servicii.html" class="service-link" data-i18n="services.details">Detalii →</a>
+      </div>
+    </div>
+    <div class="services-cta">
+      <a href="servicii.html" class="btn btn-ghost-light" data-i18n="services.seeAll">Vezi toate serviciile →</a>
+    </div>
+  </section>
+
+  <!-- ════════ AFECȚIUNI PREVIEW ════════ -->
+  <section class="afflictions-section">
+    <div class="section-header fade-in">
+      <span class="section-label" data-i18n="conditions.eyebrow">Ce tratăm</span>
+      <h2 data-i18n="conditions.title">Afecțiuni tratate</h2>
+      <p data-i18n="conditions.subtitle">De la durerile cronice la recuperarea post-operatorie — fiecare caz primește atenție individuală.</p>
+    </div>
+    <div class="tag-cloud fade-in">
+      <a href="afectiuni.html" class="tag" data-i18n="conditions.tagLumbar">Dureri lombare</a>
+      <a href="afectiuni.html" class="tag" data-i18n="conditions.tagCervical">Cervicalgii</a>
+      <a href="afectiuni.html" class="tag" data-i18n="conditions.tagHernia">Hernie de disc</a>
+      <a href="afectiuni.html" class="tag" data-i18n="conditions.tagShoulder">Dureri de umăr</a>
+      <a href="afectiuni.html" class="tag" data-i18n="conditions.tagSciatica">Sciatică</a>
+      <a href="afectiuni.html" class="tag" data-i18n="conditions.tagSports">Leziuni sportive</a>
+      <a href="afectiuni.html" class="tag" data-i18n="conditions.tagPostop">Recuperare post-op</a>
+      <a href="afectiuni.html" class="tag" data-i18n="conditions.tagScoliosis">Scolioză</a>
+    </div>
+    <a href="afectiuni.html" class="btn btn-ghost-dark" data-i18n="conditions.seeAll">Toate afecțiunile tratate →</a>
+  </section>
+
+  <!-- ════════ REVIEWS (Elfsight Google Reviews — live) ════════ -->
+  <section class="reviews-section">
+    <div class="section-header fade-in">
+      <span class="section-label" data-i18n="reviews.eyebrow">Voci de la pacienți</span>
+      <h2 data-i18n="reviews.title">Ce spun cei care ne-au trecut pragul</h2>
+    </div>
+    <div class="reviews-elfsight fade-in">
+      <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div class="elfsight-app-9b5ef293-b4af-4d9d-af3c-6bf6ca3919c1" data-elfsight-app-lazy></div>
+    </div>
+  </section>
+
+  <!-- ════════ CTA BANNER ════════ -->
+  <section class="cta-banner">
+    <h2 data-i18n="cta.title">Primul pas spre recuperare începe cu un telefon.</h2>
+    <p data-i18n="cta.subtitle">Programează-te astăzi. Luni–Vineri, 09:00–17:00</p>
+    <div class="cta-banner-actions">
+      <a href="contact.html" class="btn btn-primary-dark" data-booking-trigger data-i18n="cta.button">Programează-te</a>
+      <a href="tel:0746865189" class="cta-tel">0746 865 189</a>
+    </div>
+  </section>
+
+  <!-- ════════ CONTACT PREVIEW ════════ -->
+  <section class="contact-preview">
+    <div class="section-header fade-in">
+      <span class="section-label" data-i18n="contactPreview.eyebrow">Vino la noi</span>
+      <h2 style="color: var(--cream);" data-i18n="contactPreview.title">Ne găsești în inima Iașiului</h2>
+    </div>
+    <div class="contact-preview-grid">
+      <div class="contact-block fade-in">
+        <div class="contact-block-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        </div>
+        <div class="contact-block-text" data-i18n-html="contactPreview.addressLine">Str. Pantelimon Halipa 5A<br>Iași 700612</div>
+      </div>
+      <div class="contact-block fade-in">
+        <div class="contact-block-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </div>
+        <div class="contact-block-text"><a href="tel:0746865189">0746 865 189</a></div>
+      </div>
+      <div class="contact-block fade-in">
+        <div class="contact-block-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <div class="contact-block-text" data-i18n-html="contactPreview.scheduleLine">Luni–Vineri<br>09:00–17:00</div>
+      </div>
+    </div>
+    <a href="contact.html" class="btn btn-ghost-light" data-i18n="contactPreview.button">Contactează-ne →</a>
+  </section>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="footer-logo">
+          <img src="logo.png" alt="Vivant Osteo & Physio">
+        </a>
+        <p class="footer-tagline" data-i18n="footer.tagline">Redescoperă mișcarea. Redescoperă viața.</p>
+        <div class="footer-social">
+          <a href="https://facebook.com/vivantosteo" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01z"/></svg>
+          </a>
+          <a href="https://instagram.com/vivantosteo" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor"></circle></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title" data-i18n="footer.colPages">Pagini</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"     data-i18n="nav.home">Acasă</a></li>
+          <li><a href="despre.html"    data-i18n="nav.about">Despre noi</a></li>
+          <li><a href="servicii.html"  data-i18n="nav.services">Servicii</a></li>
+          <li><a href="afectiuni.html" data-i18n="nav.conditions">Afecțiuni</a></li>
+          <li><a href="preturi.html"   data-i18n="nav.pricing">Prețuri</a></li>
+          <li><a href="faq.html"       data-i18n="nav.faq">FAQ</a></li>
+          <li><a href="contact.html"   data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title" data-i18n="footer.colContact">Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Str. Pantelimon Halipa 5A, Iași 700612
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <a href="tel:0746865189">0746 865 189</a>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <a href="mailto:contact@vivant.ro">contact@vivant.ro</a>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span data-i18n-html="footer.schedule">Luni–Vineri: 09:00–17:00<br>Sâmbătă–Duminică: Închis</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom" data-i18n="footer.copyright">
+      © 2026 Vivant Osteo & Physio · Toate drepturile rezervate.
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" aria-label="Sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script src="translations.js"></script>
+  <script src="booking.js"></script>
+  <script src="reviews.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

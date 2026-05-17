@@ -1,0 +1,605 @@
+Construiește-mi un site de prezentare MULTI-PAGE complet în HTML/CSS/JS 
+pentru clinica "Vivant Osteo & Physio". 
+
+Generează TOATE fișierele pe rând, în ordine. Site-ul trebuie să fie modern, 
+minimalist, elegant și rafinat — calitate premium de clinică privată de top.
+
+═══════════════════════════════════════
+  FIȘIERE DE GENERAT (multi-page)
+═══════════════════════════════════════
+
+  index.html        → Acasă
+  despre.html       → Despre noi
+  servicii.html     → Servicii
+  afectiuni.html    → Afecțiuni tratate
+  preturi.html      → Prețuri
+  faq.html          → Întrebări frecvente
+  contact.html      → Contact & Programare
+  style.css         → Stiluri globale (importat în toate paginile)
+  main.js           → JavaScript global (importat în toate paginile)
+
+Toate paginile partajează același style.css și main.js.
+Navbar-ul și footer-ul sunt identice pe toate paginile 
+(replicate în fiecare HTML sau comentate clar pentru copy-paste).
+Pagina activă din navbar primește clasa CSS "active" 
+(stil: border-bottom 2px solid #c3c042).
+
+═══════════════════════════════════════
+  DATE REALE ALE CLINICII
+═══════════════════════════════════════
+
+Nume clinică:  Vivant Osteo & Physio
+Telefon:       0746 865 189
+Adresă:        Str. Pantelimon Halipa 5A, Iași, cod poștal 700612
+Email:         contact@vivant.ro  [placeholder]
+Website:       www.vivant.ro      [placeholder]
+
+Program de lucru:
+  Luni      09:00 – 17:00
+  Marți     09:00 – 17:00
+  Miercuri  09:00 – 17:00
+  Joi       09:00 – 17:00
+  Vineri    09:00 – 17:00
+  Sâmbătă   Închis
+  Duminică  Închis
+
+Social media (placeholder link-uri):
+  Facebook:  https://facebook.com/vivantosteo
+  Instagram: https://instagram.com/vivantosteo
+
+═══════════════════════════════════════
+  IDENTITATE VIZUALĂ
+═══════════════════════════════════════
+
+LOGO:
+  Fișier: logo.png (aflat în același folder cu toate fișierele HTML)
+  Folosește <img src="logo.png" alt="Vivant Osteo & Physio"> 
+  oriunde apare logo-ul.
+  
+  În NAVBAR: logo.png cu height: 52px, width: auto
+  În FOOTER: logo.png cu height: 64px, width: auto, 
+    filter: brightness(0) invert(1) — pentru versiunea albă pe fond dark
+  Pe fundal deschis (#efebdb sau #ffffff): logo fără filtru
+  Pe fundal dark (#1a1a17): logo cu filter: brightness(0) invert(1)
+
+PALETA DE CULORI (strictă, nu o modifica):
+  --cream:       #efebdb   → fundal principal, suprafețe calde
+  --olive-gold:  #c3c042   → accent primar, CTA, highlights, detalii decorative
+  --charcoal:    #1a1a17   → text, headere, elemente dark
+  --white:       #ffffff   → carduri, secțiuni alternante
+  --cream-dark:  #e2dcc8   → hover pe fundal cream, borduri subtile
+  --olive-muted: #a8a535   → hover pe butoane, varianta mai închisă a accentului
+  --charcoal-60: rgba(26,26,23,0.6) → text secundar, subtitluri
+
+TIPOGRAFIE (Google Fonts — importă în <head> al fiecărei pagini):
+  @import 'Inter': weights 300, 400, 600
+  @import 'Cormorant Garamond': weights 400, 600, 700
+
+  H1:   Cormorant Garamond Bold 700, 54–64px, color #1a1a17 (sau #efebdb pe dark)
+  H2:   Cormorant Garamond SemiBold 600, 38–44px
+  H3:   Inter Medium 500, 20px
+  Body: Inter Regular 400, 16px, line-height 1.75, color #1a1a17
+  CTA:  Inter SemiBold 600, 13px, letter-spacing 0.1em, uppercase
+
+BUTOANE:
+  Primary:
+    background #c3c042, color #1a1a17
+    padding 14px 32px, border-radius 4px
+    font: Inter 600, 13px, uppercase, letter-spacing 0.1em
+    hover: background #a8a535, transition 200ms ease
+    
+  Ghost Dark (pe fundal deschis):
+    background transparent, border 1.5px solid #1a1a17, color #1a1a17
+    hover: background #1a1a17, color #efebdb, transition 200ms ease
+    
+  Ghost Light (pe fundal dark):
+    background transparent, border 1.5px solid #efebdb, color #efebdb
+    hover: background #efebdb, color #1a1a17, transition 200ms ease
+
+PRINCIPII DESIGN:
+  - Spațiere generoasă — whitespace mult și intenționat
+  - Linii fine #c3c042 ca detalii decorative (separatoare, accente sub titluri)
+  - Fără umbre grele, fără gradiente — flat, curat, rafinat
+  - Border-radius mic: 4px butoane, 8px carduri
+  - Animații: fade-in la scroll (IntersectionObserver), hover 200ms ease
+  - Icoane: SVG outline inline, 24px, stroke #1a1a17 (sau #efebdb pe dark)
+  - Imagini: placeholder via https://placehold.co (ex: /800x600/efebdb/1a1a17)
+
+FORM FIELDS (style special):
+  - Border DOAR jos (border-bottom 1px solid #1a1a17), fără box border
+  - Background transparent
+  - Label floating animat (sus la focus)
+  - Focus: border-bottom devine 2px solid #c3c042
+  - Fără border-radius
+
+═══════════════════════════════════════
+  NAVBAR (identic pe toate paginile)
+═══════════════════════════════════════
+
+Comportament:
+  - Poziție: fixed top, z-index 1000
+  - Default (top pagină): background transparent, text #efebdb (pe hero dark)
+    SAU background #efebdb, text #1a1a17 (pe pagini fără hero dark)
+  - La scroll >80px: background #1a1a17, text #efebdb
+  - Logo: pe fundal dark → filter: brightness(0) invert(1)
+  - Tranziție background: 300ms ease
+
+Conținut:
+  Stânga: <img src="logo.png" alt="Vivant Osteo & Physio" height="52">
+  Dreapta: 
+    Acasă · Despre noi · Servicii · Afecțiuni · Prețuri · FAQ · Contact
+    + buton CTA Primary "Programează-te" (link spre contact.html)
+  
+  Link-uri nav: Inter 400, 14px, letter-spacing 0.05em
+  Pagina activă: border-bottom 2px solid #c3c042
+
+Mobile (<768px):
+  Hamburger icon dreapta
+  Drawer lateral: background #1a1a17, text #efebdb
+  Buton CTA vizibil și în mobile menu
+
+═══════════════════════════════════════
+  FOOTER (identic pe toate paginile)
+═══════════════════════════════════════
+
+Fundal: #1a1a17
+
+3 coloane (desktop), stack pe mobile:
+
+  Col 1 — Brand:
+    <img src="logo.png" height="64" style="filter: brightness(0) invert(1)">
+    Tagline italic: "Redescoperă mișcarea. Redescoperă viața."
+    Text color: #efebdb la 70%
+    Social media: iconițe SVG Facebook + Instagram, #efebdb, hover #c3c042
+
+  Col 2 — Navigare rapidă:
+    Titlu: "Pagini" (Inter 600, 12px, uppercase, letter-spacing 0.15em, #c3c042)
+    Link-uri: Acasă / Despre noi / Servicii / Afecțiuni / Prețuri / FAQ / Contact
+    Culoare link-uri: #efebdb la 70%, hover #efebdb 100%
+
+  Col 3 — Contact rapid:
+    Titlu: "Contact" (același stil ca titlul Col 2)
+    📍 Str. Pantelimon Halipa 5A, Iași 700612
+    📞 0746 865 189
+    ✉ contact@vivant.ro
+    🕐 Luni–Vineri: 09:00–17:00
+       Sâmbătă–Duminică: Închis
+
+Linie separator: 1px solid rgba(195,192,66,0.25)
+
+Bottom bar:
+  "© 2025 Vivant Osteo & Physio · Toate drepturile rezervate."
+  Text: #efebdb la 40%, Inter 12px, center
+
+═══════════════════════════════════════
+  PAGINA 1 — index.html (ACASĂ)
+═══════════════════════════════════════
+
+── HERO ──
+  Fundal: #1a1a17 (full viewport height, 100vh)
+  Conținut centrat vertical (flexbox):
+    - Etichetă mică: "CLINICĂ DE OSTEOPATIE & FIZIOTERAPIE" 
+      Inter 11px, #c3c042, letter-spacing 0.25em, uppercase
+    - Linie decorativă: 60px wide, 1px, #c3c042, centrată, margin 16px auto
+    - H1: "Redescoperă mișcarea." în Cormorant Garamond, #efebdb
+    - H1 line 2: "Redescoperă viața." italic, același stil
+    - Paragraf: "La Vivant, fiecare tratament începe cu ascultare și se 
+      construiește în jurul nevoilor tale unice." — #efebdb la 70%, max-width 560px
+    - 2 butoane: [Programează-te acum] (Primary) + [Descoperă serviciile] (Ghost Light)
+  Scroll indicator: chevron animat jos, #c3c042, bottom 32px
+
+── TRUST BAR ──
+  Fundal: #efebdb
+  4 statistici în linie:
+    500+ Pacienți tratați  |  5+ Ani experiență  |  
+    3 Specialiști  |  98% Satisfacție
+  Numere: Cormorant Garamond Bold, 42px, #c3c042
+  Label: Inter 12px, #1a1a17 la 60%, uppercase, letter-spacing 0.1em
+  Counter JS animation la scroll
+
+── PREZENTARE CLINICĂ ──
+  Fundal: #ffffff
+  2 coloane (50/50), gap 80px, max-width 1200px:
+    Stânga: Imagine placeholder 600×700px
+    Dreapta (centrat vertical):
+      - Etichetă: "DESPRE VIVANT" (#c3c042, 11px, uppercase, letter-spacing 0.2em)
+      - H2 serif: "Mai mult decât un cabinet medical"
+      - 3 paragrafe despre filozofia clinicii, abordare holistică, echipă
+      - 3 puncte cheie cu iconițe SVG mici:
+          ✓ Abordare personalizată pentru fiecare pacient
+          ✓ Tehnici validate și bazate pe evidență clinică
+          ✓ Programare flexibilă, fără liste de așteptare lungi
+      - Buton Ghost Dark: "Cunoaște echipa noastră →"
+
+── SERVICII (preview) ──
+  Fundal: #1a1a17
+  Header centrat:
+    Etichetă #c3c042 + H2 "Serviciile noastre" în #efebdb
+  Grid 3 coloane × 2 rânduri:
+    Card: border 1px solid rgba(195,192,66,0.2), padding 40px 32px
+    background: rgba(239,235,219,0.04)
+    Hover: border-color #c3c042, transform: translateY(-4px), transition 300ms
+    1. Osteopatie
+    2. Fizioterapie
+    3. Kinetoterapie
+    4. Terapie Manuală
+    5. Masaj Terapeutic
+    6. Recuperare Post-Op
+    Fiecare card: iconiță SVG + titlu + descriere 2 rânduri + "Detalii →" #c3c042
+  Buton centrat sub grid: Ghost Light "Vezi toate serviciile →"
+
+── AFECȚIUNI (preview) ──
+  Fundal: #efebdb
+  Header + subtitlu
+  Tag cloud cu 8 afecțiuni principale:
+    Dureri lombare · Cervicalgii · Hernie de disc · Dureri de umăr · 
+    Sciatică · Leziuni sportive · Recuperare post-op · Scolioză
+  Tag: border 1px #1a1a17, padding 8px 20px, border-radius 2px
+  Hover: background #c3c042, border-color #c3c042, color #1a1a17
+  Buton: Ghost Dark "Toate afecțiunile tratate →"
+
+── TESTIMONIALE ──
+  Fundal: #ffffff
+  3 carduri:
+    border-top 3px solid #c3c042, padding 40px 32px, background #efebdb
+    Ghilimele decorative mari: Cormorant Garamond, 80px, #c3c042, opacity 0.3
+    Text testimonial + Rating 5 stele #c3c042
+    Autor: inițiale avatar + Nume + Afecțiune tratată
+
+── CTA BANNER ──
+  Fundal: #c3c042
+  Titlu: "Primul pas spre recuperare începe cu un telefon."
+    Cormorant Garamond Bold, #1a1a17, 42px
+  Subtitlu: "Programează-te astăzi. Luni–Vineri, 09:00–17:00"
+  Buton: background #1a1a17, color #efebdb
+  Tel: "0746 865 189" ca link tel: clickabil, lângă buton
+
+── CONTACT PREVIEW ──
+  Fundal: #1a1a17
+  3 coloane cu iconițe:
+    📍 Str. Pantelimon Halipa 5A, Iași 700612
+    📞 0746 865 189 (link tel:)
+    🕐 Luni–Vineri: 09:00–17:00
+  Text #efebdb, iconițe #c3c042
+  Buton centrat: Ghost Light "Contactează-ne →"
+
+═══════════════════════════════════════
+  PAGINA 2 — despre.html (DESPRE NOI)
+═══════════════════════════════════════
+
+── HERO MIC ──
+  Fundal: #1a1a17, height 320px
+  H1: "Despre noi" în #efebdb + breadcrumb
+
+── POVESTEA CLINICII ──
+  Fundal: #ffffff
+  2 coloane:
+    Stânga: Imagine placeholder 600×500px
+    Dreapta: Etichetă + H2 + 4 paragrafe despre:
+      - Fondarea clinicii, viziunea, misiunea
+      - Abordarea holistică bazată pe evidență
+      - Angajamentul față de pacient
+      - Ce înseamnă "Vivant" (latin: viu, plin de viață)
+
+── VALORILE NOASTRE ──
+  Fundal: #efebdb
+  4 carduri (2×2 grid):
+    Iconiță SVG + H3 + descriere 2 rânduri
+    1. Empatie — "Ascultăm înainte de a trata"
+    2. Excelență — "Tehnici bazate pe cele mai recente cercetări"
+    3. Holism — "Tratăm omul, nu simptomul"
+    4. Continuitate — "Însoțim pacientul pe tot parcursul recuperării"
+
+── ECHIPA ──
+  Fundal: #ffffff
+  3 carduri specialiști:
+    Foto circular placeholder 200×200px, border 3px solid #c3c042
+    Hover: translateY(-4px)
+    Nume: Inter SemiBold 18px
+    Specializare: Inter 14px, #c3c042
+    Bio: 3 rânduri
+    Certificări: tags mici (border 1px #e2dcc8, padding 4px 12px, 12px font)
+
+── CTA BANNER ── (identic ca pe homepage)
+
+═══════════════════════════════════════
+  PAGINA 3 — servicii.html (SERVICII)
+═══════════════════════════════════════
+
+── HERO MIC ──
+  Fundal: #1a1a17, height 320px
+  H1: "Serviciile noastre" + breadcrumb
+
+── INTRO ──
+  Fundal: #efebdb, max-width 720px, centrat
+  2 paragrafe despre abordarea multidisciplinară
+
+── SERVICII DETALIATE ──
+  Fundal: #ffffff
+  6 secțiuni alternând layout stânga/dreapta:
+  Fiecare serviciu:
+    2 coloane — imagine 45% / text 55%
+    Text:
+      - Nr. decorativ: "01"–"06" Cormorant 64px, #c3c042 la 20% opacitate
+      - H2: Numele serviciului
+      - Paragraf introductiv + beneficii
+      - "Recomandat pentru:" — 4-5 afecțiuni
+      - Durata + preț de la
+      - Buton Ghost Dark: "Programează o ședință →"
+    Separator fin #c3c042 între secțiuni
+
+  01. Osteopatie
+  02. Fizioterapie
+  03. Kinetoterapie
+  04. Terapie Manuală
+  05. Masaj Terapeutic
+  06. Recuperare Post-Operatorie
+
+── CTA BANNER ── (identic)
+
+═══════════════════════════════════════
+  PAGINA 4 — afectiuni.html (AFECȚIUNI)
+═══════════════════════════════════════
+
+── HERO MIC ──
+  Fundal: #1a1a17, height 320px
+  H1: "Afecțiuni tratate" + breadcrumb
+
+── INTRO ──
+  Fundal: #efebdb, max-width 720px, centrat
+
+── GRID AFECȚIUNI ──
+  Fundal: #ffffff
+  Grid 4 coloane (desktop), 2 mobile
+  14 carduri:
+    Iconiță SVG outline 32px #c3c042 + Titlu + Descriere 1-2 rânduri
+    Hover: border-bottom 2px solid #c3c042, background #efebdb
+    1.  Dureri lombare       2.  Dureri cervicale
+    3.  Hernie de disc       4.  Dureri de umăr
+    5.  Dureri de genunchi   6.  Dureri de șold
+    7.  Scolioză & Cifoză   8.  Sciatică
+    9.  Recuperare post-op  10. Leziuni sportive
+    11. Tendinite & Entorse 12. Cefalee cervicogenă
+    13. Dureri sarcină/post-partum  14. Afecțiuni pediatrice
+
+── NOTĂ ──
+  Fundal: #efebdb, max-width 680px, centrat, padding 48px
+  Text italic + Buton Ghost Dark: "Contactează-ne →"
+
+── CTA BANNER ── (identic)
+
+═══════════════════════════════════════
+  PAGINA 5 — preturi.html (PREȚURI)
+═══════════════════════════════════════
+
+── HERO MIC ──
+  Fundal: #1a1a17, height 320px
+  H1: "Prețuri transparente" + breadcrumb
+  Subtitlu: "Fără costuri ascunse. Fără surprize."
+
+── INTRO ──
+  Fundal: #efebdb, max-width 680px, centrat
+
+── CARDURI PREȚURI ──
+  Fundal: #ffffff
+  3 carduri pe rând, gap 24px, max-width 1100px:
+
+  Card 1 — Consultație Inițială:
+    Border-top 3px solid #1a1a17
+    Preț: "200 RON" Cormorant Garamond Bold 48px
+    Sub-preț: "60 minute"
+    ✓ Evaluare posturală completă
+    ✓ Examinare funcțională
+    ✓ Stabilirea planului de tratament
+    ✓ Primul tratament inclus
+    Buton Ghost Dark
+
+  Card 2 — Ședință Standard [EVIDENȚIAT]:
+    Background: #1a1a17, text #efebdb, border-top 3px solid #c3c042
+    Badge "RECOMANDAT" — background #c3c042, color #1a1a17
+    Preț: "150 RON" în #efebdb
+    Sub-preț: "45 minute" în #efebdb la 50%
+    ✓ Tratament osteopatic / fizioterapeutic
+    ✓ Exerciții terapeutice personalizate
+    ✓ Urmărirea progresului
+    ✓ Recomandări pentru acasă
+    Buton Primary
+
+  Card 3 — Pachet 10 Ședințe:
+    Border-top 3px solid #c3c042
+    Badge: "ECONOMISEȘTI 300 RON"
+    Preț: "1.200 RON" Cormorant Bold 48px
+    Preț tăiat: ~~1.500 RON~~ opacity 0.4
+    Sub-preț: "120 RON / ședință · Valabil 3 luni"
+    ✓ Toate beneficiile ședinței standard
+    ✓ Evaluare de progres inclusă
+    ✓ Prioritate la programare
+    ✓ Flexibilitate în planificare
+    Buton Ghost Dark
+
+── NOTĂ LEGALĂ ──
+  Fundal: #ffffff, max-width 680px, centrat
+  Text italic mic: "Prețurile afișate sunt orientative și pot varia 
+  în funcție de complexitatea cazului. Planul exact va fi stabilit 
+  în urma consultației inițiale."
+
+── CTA BANNER ── (identic)
+
+═══════════════════════════════════════
+  PAGINA 6 — faq.html (FAQ)
+═══════════════════════════════════════
+
+── HERO MIC ──
+  Fundal: #1a1a17, height 320px
+  H1: "Întrebări frecvente" + breadcrumb
+
+── ACCORDION FAQ ──
+  Fundal: #efebdb, max-width 760px, centrat, padding 80px 40px
+  8 întrebări cu animație max-height smooth:
+    Header: Inter SemiBold 17px + iconiță +/- rotită 45deg la deschis
+    Border-bottom 1px solid #e2dcc8
+    Item deschis: border-left 3px solid #c3c042, padding-left 20px
+
+  1. "Ce este osteopatia și cum diferă de alte terapii manuale?"
+  2. "Câte ședințe sunt necesare pentru a vedea rezultate?"
+  3. "Cum decurge prima consultație la Vivant Osteo & Physio?"
+  4. "Tratamentele osteopatice sau de fizioterapie sunt dureroase?"
+  5. "Ce documente sau investigații trebuie să aduc la prima vizită?"
+  6. "Pot urma osteopatie și fizioterapie în același timp?"
+  7. "Care este diferența dintre fizioterapie și kinetoterapie?"
+  8. "Cum pot face o programare?"
+
+── SECȚIUNE "MAI AI ÎNTREBĂRI?" ──
+  Fundal: #1a1a17, padding 64px
+  [Sună acum: 0746 865 189] (Primary, link tel:0746865189)
+  [Trimite un mesaj] (Ghost Light, link contact.html)
+
+═══════════════════════════════════════
+  PAGINA 7 — contact.html (CONTACT)
+═══════════════════════════════════════
+
+── HERO MIC ──
+  Fundal: #1a1a17, height 320px
+  H1: "Contact & Programare" + breadcrumb
+
+── MAIN CONTACT SECTION ──
+  Fundal: #ffffff, 2 coloane (45% / 55%), gap 80px
+
+  ── Stânga — Informații ──
+    Bloc adresă:
+      Str. Pantelimon Halipa 5A (bold)
+      Iași, cod poștal 700612
+
+    Bloc telefon:
+      0746 865 189 (link tel:0746865189, hover color #c3c042)
+      "Disponibil Luni–Vineri, 09:00–17:00"
+
+    Bloc email:
+      contact@vivant.ro (link mailto:)
+
+    Bloc program (tabel 2 col: Ziua / Ore):
+      Luni      09:00 – 17:00
+      Marți     09:00 – 17:00
+      Miercuri  09:00 – 17:00
+      Joi       09:00 – 17:00
+      Vineri    09:00 – 17:00
+      Sâmbătă   Închis (italic, opacity 0.4)
+      Duminică  Închis (italic, opacity 0.4)
+      Ziua curentă: JS getDay() → background #efebdb, 
+        font-weight 600, border-left 3px solid #c3c042
+
+    Social: Facebook + Instagram SVG, hover #c3c042
+
+    Google Maps iframe:
+      Adresa: "Str. Pantelimon Halipa 5A, Iași"
+      width 100%, height 280px, border-radius 4px
+      CSS filter: grayscale(30%)
+      Notă: "Parcare disponibilă în fața clădirii"
+
+  ── Dreapta — Formular ──
+    H3: "Trimite-ne un mesaj"
+    Row 1 (2 col): Nume complet * | Telefon *
+    Row 2: Email *
+    Row 3: Select "Serviciu dorit" (Osteopatie / Fizioterapie / 
+      Kinetoterapie / Terapie Manuală / Masaj Terapeutic / 
+      Recuperare Post-Operatorie / Nu știu încă)
+    Row 4: Textarea "Descrie pe scurt problema" (min-height 120px)
+    Row 5: Checkbox GDPR + label clickabil
+    Buton Primary full-width: "TRIMITE MESAJUL"
+    
+    La submit reușit: fade-out form → fade-in mesaj:
+      "✓ Mesaj trimis cu succes! Te vom contacta Luni–Vineri, 09:00–17:00."
+    
+    Validare JS: câmpuri obligatorii, email regex, tel minim 10 cifre
+    Error state: border-bottom roșu #d9534f + mesaj mic sub câmp
+    
+    Style câmpuri:
+      border-bottom only 1px solid #e2dcc8
+      focus: border-bottom 2px solid #c3c042
+      label floating animat, transparent background
+
+── BANNER URGENȚĂ ──
+  Fundal: #efebdb, centrat
+  "0746 865 189" — Cormorant Bold 48px, link tel:, hover #c3c042
+  Sub: "Luni–Vineri · 09:00 – 17:00"
+
+═══════════════════════════════════════
+  JAVASCRIPT GLOBAL (main.js)
+═══════════════════════════════════════
+
+1. Navbar scroll: transparent → #1a1a17 la scroll >80px + logo filter toggle
+2. Hamburger menu mobile cu overlay click-to-close
+3. Accordion FAQ: max-height toggle + rotire iconiță +/-
+4. Fade-in scroll: IntersectionObserver pe .fade-in (opacity+translateY)
+5. Counter animation: trust bar (500+, 5+, 3, 98%) la scroll, 1500ms ease-out
+6. Formular contact: validare + success state (preventDefault)
+7. Zi curentă în tabelul program: getDay() → clasă .today
+8. Active nav link: pathname matching → clasă .active
+9. Scroll-to-top button: apare la >400px, background #c3c042
+
+═══════════════════════════════════════
+  CSS GLOBAL (style.css)
+═══════════════════════════════════════
+
+:root {
+  --cream:       #efebdb;
+  --olive-gold:  #c3c042;
+  --charcoal:    #1a1a17;
+  --white:       #ffffff;
+  --cream-dark:  #e2dcc8;
+  --olive-muted: #a8a535;
+  --charcoal-60: rgba(26,26,23,0.6);
+  --space-xs: 8px;  --space-sm: 16px;
+  --space-md: 32px; --space-lg: 64px; --space-xl: 96px;
+  --max-width: 1200px;
+  --section-padding: 96px 40px;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
+  --radius-sm: 4px; --radius-md: 8px;
+  --transition: 200ms ease;
+}
+
+Helpers: .container, .section-label, .fade-in, .grid-2, .grid-3, .grid-4
+Responsive: 1200px / 768px / 480px
+
+═══════════════════════════════════════
+  META TAGS
+═══════════════════════════════════════
+
+Favicon SVG inline (litera V în #c3c042 pe fundal #1a1a17):
+<link rel="icon" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
+  <rect width='32' height='32' fill='%231a1a17'/>
+  <text x='16' y='22' font-size='18' text-anchor='middle'
+  fill='%23c3c042' font-family='serif' font-weight='bold'>V</text></svg>">
+
+index.html:
+  <title>Vivant Osteo & Physio — Clinică de Osteopatie și Fizioterapie, Iași</title>
+  <meta name="description" content="Clinică de osteopatie și fizioterapie în Iași. 
+    Tratamente personalizate pentru durere, recuperare și mobilitate. 
+    Luni–Vineri 09:00–17:00. Tel: 0746 865 189">
+
+despre.html:   <title>Despre noi — Vivant Osteo & Physio, Iași</title>
+servicii.html: <title>Servicii — Osteopatie, Fizioterapie | Vivant Iași</title>
+afectiuni.html:<title>Afecțiuni tratate — Vivant Osteo & Physio, Iași</title>
+preturi.html:  <title>Prețuri — Vivant Osteo & Physio, Iași</title>
+faq.html:      <title>Întrebări frecvente — Vivant Osteo & Physio, Iași</title>
+contact.html:  <title>Contact & Programare — Vivant Osteo & Physio, Iași</title>
+
+═══════════════════════════════════════
+  LIVRABIL FINAL
+═══════════════════════════════════════
+
+Generează fișierele în această ordine:
+  1. style.css  2. main.js  3. index.html  4. despre.html
+  5. servicii.html  6. afectiuni.html  7. preturi.html
+  8. faq.html  9. contact.html
+
+Cerințe finale:
+  - logo.png se află în același folder cu toate fișierele HTML
+  - Pe fundal deschis: <img src="logo.png"> fără filtru
+  - Pe fundal #1a1a17: <img src="logo.png" style="filter: brightness(0) invert(1)">
+  - Tel 0746 865 189 clickabil cu tel:0746865189 oriunde apare
+  - Zero dependențe locale, funcționează direct în browser
+  - HTML/CSS/JS pur — fără framework-uri
+  - Cod curat, indentat, cu comentarii de secțiune
