@@ -224,17 +224,21 @@
     });
   }
 
-  /* ─── 7. Contact form validation + success ─── */
+  /* ─── 7. Contact form validation + Web3Forms submission ─── */
   function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
     const success = document.getElementById('form-success');
+    const errorBox = document.getElementById('form-error');
+    const submitBtn = form.querySelector('[type="submit"]');
+    const submitLabel = submitBtn ? submitBtn.textContent : '';
 
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       let valid = true;
 
       form.querySelectorAll('.form-field').forEach(f => f.classList.remove('has-error'));
+      if (errorBox) errorBox.classList.remove('is-visible');
 
       const name = form.querySelector('[name="name"]');
       const phone = form.querySelector('[name="phone"]');
@@ -255,16 +259,59 @@
 
       if (!valid) return;
 
-      form.style.transition = 'opacity 300ms ease';
-      form.style.opacity = '0';
-      setTimeout(() => {
-        form.style.display = 'none';
-        if (success) {
-          success.classList.add('is-visible');
-          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const accessKey = (form.querySelector('[name="access_key"]') || {}).value || '';
+      const configured = accessKey && accessKey !== 'YOUR_WEB3FORMS_ACCESS_KEY';
+
+      const showSuccess = () => {
+        form.style.transition = 'opacity 300ms ease';
+        form.style.opacity = '0';
+        setTimeout(() => {
+          form.style.display = 'none';
+          if (success) {
+            success.classList.add('is-visible');
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 300);
+      };
+
+      // Graceful fallback: until a real Web3Forms key is set, behave like a demo.
+      if (!configured) {
+        console.warn('[Vivant] Web3Forms access_key not set — form not actually sent. ' +
+          'Add your key in contact.html to enable email delivery.');
+        showSuccess();
+        return;
+      }
+
+      // Live submission to Web3Forms
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = t('form.sending', 'Se trimite…'); }
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          showSuccess();
+        } else {
+          throw new Error(data.message || 'submit failed');
         }
-      }, 300);
+      } catch (err) {
+        console.error('[Vivant] Form submission failed:', err);
+        if (errorBox) {
+          errorBox.classList.add('is-visible');
+          errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitLabel; }
+      }
     });
+
+    // Small i18n helper local to this module (falls back to provided default)
+    function t(key, fallback) {
+      const v = window.VivantI18n ? window.VivantI18n.t(key) : undefined;
+      return (v === undefined || v === null) ? fallback : v;
+    }
   }
 
   /* ─── 8. Today highlight in schedule table ─── */

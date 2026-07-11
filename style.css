@@ -2146,6 +2146,24 @@ p:last-child { margin-bottom: 0; }
   animation: fadeIn 400ms ease;
 }
 
+.form-error-box {
+  display: none;
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background: #fdf3f0;
+  border-left: 3px solid #c0503a;
+  color: #7a2f22;
+  font-size: 15px;
+  border-radius: var(--radius-sm);
+}
+
+.form-error-box a { color: #c0503a; text-decoration: underline; }
+
+.form-error-box.is-visible {
+  display: block;
+  animation: fadeIn 400ms ease;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }

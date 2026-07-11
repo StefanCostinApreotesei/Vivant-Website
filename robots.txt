@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Block nothing important; assets are fine to crawl.
+
+Sitemap: https://www.vivantop.ro/sitemap.xml
