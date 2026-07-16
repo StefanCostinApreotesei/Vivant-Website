@@ -791,7 +791,10 @@ p:last-child { margin-bottom: 0; }
 .team-section + .cta-banner::before,
 .hero-small + .intro-block::before,
 .intro-block + .service-detail::before,
+.service-detail + .service-detail.alt::before,
+.service-detail.alt + .service-detail::before,
 .service-detail + .cta-banner::before,
+.service-detail.alt + .cta-banner::before,
 .intro-block + .pricing-section::before,
 .pricing-section + .cta-banner::before,
 .intro-block + .section::before,
@@ -1067,6 +1070,96 @@ p:last-child { margin-bottom: 0; }
     color-mix(in oklab, var(--cream) 2%, var(--charcoal)) 91.30%,
     color-mix(in oklab, var(--cream) 1%, var(--charcoal)) 95.65%,
     var(--charcoal) 100%);
+}
+
+/* ─── white → cream-soft ─── */
+.service-detail + .service-detail.alt::before {
+  background: linear-gradient(180deg, var(--white), var(--cream-soft));
+  background: linear-gradient(180deg in oklab,
+    var(--white) 0%,
+    color-mix(in oklab, var(--white) 99%, var(--cream-soft)) 4.35%,
+    color-mix(in oklab, var(--white) 98%, var(--cream-soft)) 8.70%,
+    color-mix(in oklab, var(--white) 95%, var(--cream-soft)) 13.04%,
+    color-mix(in oklab, var(--white) 92%, var(--cream-soft)) 17.39%,
+    color-mix(in oklab, var(--white) 88%, var(--cream-soft)) 21.74%,
+    color-mix(in oklab, var(--white) 83%, var(--cream-soft)) 26.09%,
+    color-mix(in oklab, var(--white) 78%, var(--cream-soft)) 30.43%,
+    color-mix(in oklab, var(--white) 72%, var(--cream-soft)) 34.78%,
+    color-mix(in oklab, var(--white) 66%, var(--cream-soft)) 39.13%,
+    color-mix(in oklab, var(--white) 60%, var(--cream-soft)) 43.48%,
+    color-mix(in oklab, var(--white) 53%, var(--cream-soft)) 47.83%,
+    color-mix(in oklab, var(--white) 47%, var(--cream-soft)) 52.17%,
+    color-mix(in oklab, var(--white) 40%, var(--cream-soft)) 56.52%,
+    color-mix(in oklab, var(--white) 34%, var(--cream-soft)) 60.87%,
+    color-mix(in oklab, var(--white) 28%, var(--cream-soft)) 65.22%,
+    color-mix(in oklab, var(--white) 22%, var(--cream-soft)) 69.57%,
+    color-mix(in oklab, var(--white) 17%, var(--cream-soft)) 73.91%,
+    color-mix(in oklab, var(--white) 12%, var(--cream-soft)) 78.26%,
+    color-mix(in oklab, var(--white) 8%, var(--cream-soft)) 82.61%,
+    color-mix(in oklab, var(--white) 5%, var(--cream-soft)) 86.96%,
+    color-mix(in oklab, var(--white) 2%, var(--cream-soft)) 91.30%,
+    color-mix(in oklab, var(--white) 1%, var(--cream-soft)) 95.65%,
+    var(--cream-soft) 100%);
+}
+
+/* ─── cream-soft → white ─── */
+.service-detail.alt + .service-detail::before {
+  background: linear-gradient(180deg, var(--cream-soft), var(--white));
+  background: linear-gradient(180deg in oklab,
+    var(--cream-soft) 0%,
+    color-mix(in oklab, var(--cream-soft) 99%, var(--white)) 4.35%,
+    color-mix(in oklab, var(--cream-soft) 98%, var(--white)) 8.70%,
+    color-mix(in oklab, var(--cream-soft) 95%, var(--white)) 13.04%,
+    color-mix(in oklab, var(--cream-soft) 92%, var(--white)) 17.39%,
+    color-mix(in oklab, var(--cream-soft) 88%, var(--white)) 21.74%,
+    color-mix(in oklab, var(--cream-soft) 83%, var(--white)) 26.09%,
+    color-mix(in oklab, var(--cream-soft) 78%, var(--white)) 30.43%,
+    color-mix(in oklab, var(--cream-soft) 72%, var(--white)) 34.78%,
+    color-mix(in oklab, var(--cream-soft) 66%, var(--white)) 39.13%,
+    color-mix(in oklab, var(--cream-soft) 60%, var(--white)) 43.48%,
+    color-mix(in oklab, var(--cream-soft) 53%, var(--white)) 47.83%,
+    color-mix(in oklab, var(--cream-soft) 47%, var(--white)) 52.17%,
+    color-mix(in oklab, var(--cream-soft) 40%, var(--white)) 56.52%,
+    color-mix(in oklab, var(--cream-soft) 34%, var(--white)) 60.87%,
+    color-mix(in oklab, var(--cream-soft) 28%, var(--white)) 65.22%,
+    color-mix(in oklab, var(--cream-soft) 22%, var(--white)) 69.57%,
+    color-mix(in oklab, var(--cream-soft) 17%, var(--white)) 73.91%,
+    color-mix(in oklab, var(--cream-soft) 12%, var(--white)) 78.26%,
+    color-mix(in oklab, var(--cream-soft) 8%, var(--white)) 82.61%,
+    color-mix(in oklab, var(--cream-soft) 5%, var(--white)) 86.96%,
+    color-mix(in oklab, var(--cream-soft) 2%, var(--white)) 91.30%,
+    color-mix(in oklab, var(--cream-soft) 1%, var(--white)) 95.65%,
+    var(--white) 100%);
+}
+
+/* ─── cream-soft → olive-deep ─── */
+.service-detail.alt + .cta-banner::before {
+  background: linear-gradient(180deg, var(--cream-soft), var(--olive-deep));
+  background: linear-gradient(180deg in oklab,
+    var(--cream-soft) 0%,
+    color-mix(in oklab, var(--cream-soft) 99%, var(--olive-deep)) 4.35%,
+    color-mix(in oklab, var(--cream-soft) 98%, var(--olive-deep)) 8.70%,
+    color-mix(in oklab, var(--cream-soft) 95%, var(--olive-deep)) 13.04%,
+    color-mix(in oklab, var(--cream-soft) 92%, var(--olive-deep)) 17.39%,
+    color-mix(in oklab, var(--cream-soft) 88%, var(--olive-deep)) 21.74%,
+    color-mix(in oklab, var(--cream-soft) 83%, var(--olive-deep)) 26.09%,
+    color-mix(in oklab, var(--cream-soft) 78%, var(--olive-deep)) 30.43%,
+    color-mix(in oklab, var(--cream-soft) 72%, var(--olive-deep)) 34.78%,
+    color-mix(in oklab, var(--cream-soft) 66%, var(--olive-deep)) 39.13%,
+    color-mix(in oklab, var(--cream-soft) 60%, var(--olive-deep)) 43.48%,
+    color-mix(in oklab, var(--cream-soft) 53%, var(--olive-deep)) 47.83%,
+    color-mix(in oklab, var(--cream-soft) 47%, var(--olive-deep)) 52.17%,
+    color-mix(in oklab, var(--cream-soft) 40%, var(--olive-deep)) 56.52%,
+    color-mix(in oklab, var(--cream-soft) 34%, var(--olive-deep)) 60.87%,
+    color-mix(in oklab, var(--cream-soft) 28%, var(--olive-deep)) 65.22%,
+    color-mix(in oklab, var(--cream-soft) 22%, var(--olive-deep)) 69.57%,
+    color-mix(in oklab, var(--cream-soft) 17%, var(--olive-deep)) 73.91%,
+    color-mix(in oklab, var(--cream-soft) 12%, var(--olive-deep)) 78.26%,
+    color-mix(in oklab, var(--cream-soft) 8%, var(--olive-deep)) 82.61%,
+    color-mix(in oklab, var(--cream-soft) 5%, var(--olive-deep)) 86.96%,
+    color-mix(in oklab, var(--cream-soft) 2%, var(--olive-deep)) 91.30%,
+    color-mix(in oklab, var(--cream-soft) 1%, var(--olive-deep)) 95.65%,
+    var(--olive-deep) 100%);
 }
 
 .split-inner {
@@ -1408,6 +1501,14 @@ p:last-child { margin-bottom: 0; }
 
 .contact-block-text a:hover { color: var(--olive-gold); }
 
+.contact-block > a {
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+  transition: color 0.2s ease;
+}
+.contact-block > a:hover { color: var(--olive-gold); }
+
 /* ════════════════════════════════════════════════════════
    VALUES (despre)
    ════════════════════════════════════════════════════════ */
@@ -1546,11 +1647,10 @@ p:last-child { margin-bottom: 0; }
 .service-detail {
   background: var(--white);
   padding: var(--space-xl) 40px;
-  border-bottom: 1px solid var(--cream-dark);
+  scroll-margin-top: 60px; /* fixed navbar clearance for #anchor deep links */
 }
 
 .service-detail:nth-of-type(even) { background: var(--cream-soft); }
-.service-detail:last-of-type { border-bottom: none; }
 
 .service-detail-inner {
   max-width: var(--max-width);
@@ -2091,6 +2191,7 @@ p:last-child { margin-bottom: 0; }
 .form-field input:not(:placeholder-shown) + label,
 .form-field select:focus + label,
 .form-field select.has-value + label,
+.form-field.cs-focused label,
 .form-field textarea:focus + label,
 .form-field textarea:not(:placeholder-shown) + label {
   top: 0;
@@ -2114,6 +2215,127 @@ p:last-child { margin-bottom: 0; }
 }
 
 .form-field.has-error .form-error { display: block; }
+
+/* ─── Custom modern dropdown (replaces native <select> visual) ─── */
+.form-field.has-custom-select select {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cs { position: relative; }
+
+.cs-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 22px 0 10px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--charcoal);
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--cream-dark);
+  border-radius: 0;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.cs-trigger::after {
+  content: '';
+  flex: none;
+  width: 12px; height: 8px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%231a1a17' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat center / contain;
+  transition: transform 250ms ease;
+}
+
+.cs.is-open .cs-trigger,
+.cs-trigger:focus-visible {
+  border-bottom: 2px solid var(--olive-gold);
+  outline: none;
+}
+
+.cs.is-open .cs-trigger::after { transform: rotate(180deg); }
+
+.cs-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Empty value must still occupy one text line, otherwise the trigger
+   collapses and the underline rides up into the floating label */
+.cs-value:empty::before { content: '\00a0'; }
+
+.cs-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0; right: 0;
+  z-index: 40;
+  padding: 6px;
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  border-radius: 14px;
+  box-shadow: 0 20px 48px rgba(26, 26, 23, 0.15), 0 4px 14px rgba(26, 26, 23, 0.08);
+  max-height: 268px;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.98);
+  transform-origin: top center;
+  transition: opacity 190ms ease, transform 190ms ease, visibility 190ms;
+}
+
+.cs.is-open .cs-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.cs-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  font-size: 14.5px;
+  color: var(--charcoal);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.cs-option:hover,
+.cs-option.is-active {
+  background: var(--cream-soft);
+}
+
+.cs-option.is-selected {
+  color: var(--olive-deep);
+  font-weight: 600;
+}
+
+.cs-option.is-selected::after {
+  content: '';
+  flex: none;
+  width: 16px; height: 16px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke='%23a89345' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13.5 4.5L6 12 2.5 8.5'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* Scrollbar polish inside the panel */
+.cs-panel::-webkit-scrollbar { width: 8px; }
+.cs-panel::-webkit-scrollbar-thumb {
+  background: var(--cream-dark);
+  border-radius: 8px;
+}
 
 .form-checkbox {
   display: flex;

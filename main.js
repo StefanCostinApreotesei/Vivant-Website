@@ -30,6 +30,7 @@
     initTodayHighlight();
     initScrollTop();
     initFormFieldState();
+    initCustomSelect();
     initHeroParallax();
   });
 
@@ -350,6 +351,143 @@
       }
       sel.addEventListener('change', update);
       update();
+    });
+  }
+
+  /* ─── 10b. Custom modern dropdown — progressive enhancement over native <select>.
+     The native <select> stays in the DOM (visually hidden) as the single source of
+     truth: form submission, i18n on <option>s and validation all keep working.
+     A styled trigger + listbox panel mirror it and sync both ways. ─── */
+  function initCustomSelect() {
+    document.querySelectorAll('.form-field select').forEach(select => {
+      const field = select.closest('.form-field');
+      if (!field || field.classList.contains('has-custom-select')) return;
+      field.classList.add('has-custom-select');
+
+      const label = field.querySelector('label');
+      if (label && !label.id) label.id = (select.id || 'sel') + '-label';
+
+      const wrap = document.createElement('div');
+      wrap.className = 'cs';
+
+      const trigger = document.createElement('button');
+      trigger.type = 'button';
+      trigger.className = 'cs-trigger';
+      trigger.id = (select.id || 'sel') + '-trigger';
+      trigger.setAttribute('aria-haspopup', 'listbox');
+      trigger.setAttribute('aria-expanded', 'false');
+      if (label) trigger.setAttribute('aria-labelledby', label.id + ' ' + trigger.id);
+
+      const valueEl = document.createElement('span');
+      valueEl.className = 'cs-value';
+      trigger.appendChild(valueEl);
+
+      const panel = document.createElement('div');
+      panel.className = 'cs-panel';
+      panel.setAttribute('role', 'listbox');
+
+      wrap.appendChild(trigger);
+      wrap.appendChild(panel);
+      field.appendChild(wrap);
+
+      let options = [];
+      let activeIndex = -1;
+
+      function buildOptions() {
+        panel.innerHTML = '';
+        options = [];
+        Array.from(select.options).forEach(opt => {
+          if (opt.value === '') return; // skip placeholder
+          const o = document.createElement('div');
+          o.className = 'cs-option';
+          o.setAttribute('role', 'option');
+          o.dataset.value = opt.value;
+          o.textContent = opt.textContent;
+          const on = opt.value === select.value;
+          o.setAttribute('aria-selected', on ? 'true' : 'false');
+          o.classList.toggle('is-selected', on);
+          o.addEventListener('click', () => choose(opt.value));
+          panel.appendChild(o);
+          options.push({ value: opt.value, el: o });
+        });
+      }
+
+      function syncValue() {
+        const sel = select.options[select.selectedIndex];
+        valueEl.textContent = (sel && sel.value) ? sel.textContent : '';
+        select.classList.toggle('has-value', !!select.value);
+        options.forEach(o => {
+          const on = o.value === select.value;
+          o.el.classList.toggle('is-selected', on);
+          o.el.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+      }
+
+      function highlight(i) {
+        if (!options.length) return;
+        activeIndex = (i + options.length) % options.length;
+        options.forEach((o, idx) => o.el.classList.toggle('is-active', idx === activeIndex));
+        options[activeIndex].el.scrollIntoView({ block: 'nearest' });
+      }
+
+      function isOpen() { return wrap.classList.contains('is-open'); }
+
+      function open() {
+        buildOptions();
+        wrap.classList.add('is-open');
+        field.classList.add('cs-focused');
+        trigger.setAttribute('aria-expanded', 'true');
+        const cur = options.findIndex(o => o.value === select.value);
+        highlight(cur >= 0 ? cur : 0);
+        document.addEventListener('click', onOutside, true);
+      }
+
+      function close() {
+        wrap.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        document.removeEventListener('click', onOutside, true);
+      }
+
+      function onOutside(e) { if (!wrap.contains(e.target)) { close(); field.classList.remove('cs-focused'); } }
+
+      function choose(value) {
+        select.value = value;
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+        syncValue();
+        close();
+        trigger.focus();
+      }
+
+      trigger.addEventListener('click', () => { isOpen() ? close() : open(); });
+
+      trigger.addEventListener('keydown', e => {
+        const openNow = isOpen();
+        switch (e.key) {
+          case 'ArrowDown': e.preventDefault(); openNow ? highlight(activeIndex + 1) : open(); break;
+          case 'ArrowUp':   e.preventDefault(); openNow ? highlight(activeIndex - 1) : open(); break;
+          case 'Home':      if (openNow) { e.preventDefault(); highlight(0); } break;
+          case 'End':       if (openNow) { e.preventDefault(); highlight(options.length - 1); } break;
+          case 'Enter':
+          case ' ':
+            e.preventDefault();
+            if (openNow && activeIndex >= 0) choose(options[activeIndex].value); else open();
+            break;
+          case 'Escape':    if (openNow) { e.preventDefault(); close(); } break;
+          case 'Tab':       close(); field.classList.remove('cs-focused'); break;
+        }
+      });
+
+      trigger.addEventListener('blur', () => {
+        setTimeout(() => {
+          if (!wrap.contains(document.activeElement)) { close(); field.classList.remove('cs-focused'); }
+        }, 0);
+      });
+
+      // Re-sync when language toggles (translations.js rewrites <option> text)
+      window.addEventListener('vivant:langchange', () => { buildOptions(); syncValue(); });
+
+      buildOptions();
+      syncValue();
     });
   }
 
