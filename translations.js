@@ -247,6 +247,9 @@ window.VIVANT_TRANSLATIONS = {
       bookNow: 'Programează-te',
       closeMenu: 'Închide meniul'
     },
+    social: {
+      whatsapp: 'https://wa.me/40746865189?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20fac%20o%20programare%20la%20Vivant%20Osteo%20%26%20Physio.'
+    },
     hero: {
       eyebrow: 'Clinică de Osteopatie & Fizioterapie · Iași',
       titleHtml: 'Redescoperă mișcarea.<span class="italic">Redescoperă viața.</span>',
@@ -592,6 +595,9 @@ window.VIVANT_TRANSLATIONS = {
       contact: 'Contact',
       bookNow: 'Book Now',
       closeMenu: 'Close menu'
+    },
+    social: {
+      whatsapp: 'https://wa.me/40746865189?text=Hello%21%20I%20would%20like%20to%20book%20an%20appointment%20at%20Vivant%20Osteo%20%26%20Physio.'
     },
     hero: {
       eyebrow: 'Osteopathy & Physiotherapy Clinic · Iași',
