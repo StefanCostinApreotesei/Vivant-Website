@@ -708,10 +708,10 @@ window.VIVANT_TRANSLATIONS = {
   const DEFAULT = 'ro';
 
   function detectInitialLang() {
+    // Prima vizită este întotdeauna în română, indiferent de limba browserului.
+    // Comutarea pe EN rămâne doar alegerea explicită a vizitatorului (butonul RO/EN).
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved && SUPPORTED.includes(saved)) return saved;
-    const browser = (navigator.language || 'ro').toLowerCase();
-    if (browser.startsWith('en')) return 'en';
     return DEFAULT;
   }
 
