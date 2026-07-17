@@ -481,7 +481,8 @@ p:last-child { margin-bottom: 0; }
   right: -100%;
   width: 340px;
   max-width: 88vw;
-  height: 100vh;
+  height: 100vh;   /* fallback pentru browsere vechi */
+  height: 100dvh;  /* înălțimea reală vizibilă pe mobil (exclude bara browserului) */
   background: var(--charcoal);
   color: var(--cream);
   padding: 110px 36px 36px;
@@ -490,9 +491,51 @@ p:last-child { margin-bottom: 0; }
   display: flex;
   flex-direction: column;
   gap: 4px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-drawer.is-open { right: 0; }
+
+/* Buton închidere (X) — colțul dreapta-sus al sertarului */
+.mobile-drawer-close {
+  position: absolute;
+  top: 26px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.mobile-drawer-close span {
+  position: absolute;
+  display: block;
+  width: 26px;
+  height: 1.5px;
+  background: var(--cream);
+  transition: background 200ms ease;
+}
+
+.mobile-drawer-close span:first-child { transform: rotate(45deg); }
+.mobile-drawer-close span:last-child  { transform: rotate(-45deg); }
+
+.mobile-drawer-close:hover span,
+.mobile-drawer-close:active span { background: var(--olive-gold); }
+
+/* Ecrane scurte: spațiere compactă ca tot meniul să încapă fără scroll */
+@media (max-height: 700px) {
+  .mobile-drawer { padding-top: 84px; }
+  .mobile-drawer a { padding: 12px 0; }
+  .mobile-drawer .btn { margin-top: 20px; padding: 15px 34px; }
+  .mobile-drawer .lang-toggle { margin-top: 12px; margin-bottom: 8px; }
+  .mobile-drawer-close { top: 18px; right: 24px; }
+}
 
 .mobile-drawer a {
   display: block;

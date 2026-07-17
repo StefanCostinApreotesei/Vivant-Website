@@ -244,7 +244,8 @@ window.VIVANT_TRANSLATIONS = {
       pricing: 'Prețuri',
       faq: 'FAQ',
       contact: 'Contact',
-      bookNow: 'Programează-te'
+      bookNow: 'Programează-te',
+      closeMenu: 'Închide meniul'
     },
     hero: {
       eyebrow: 'Clinică de Osteopatie & Fizioterapie · Iași',
@@ -589,7 +590,8 @@ window.VIVANT_TRANSLATIONS = {
       pricing: 'Pricing',
       faq: 'FAQ',
       contact: 'Contact',
-      bookNow: 'Book Now'
+      bookNow: 'Book Now',
+      closeMenu: 'Close menu'
     },
     hero: {
       eyebrow: 'Osteopathy & Physiotherapy Clinic · Iași',

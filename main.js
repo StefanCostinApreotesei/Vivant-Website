@@ -117,6 +117,8 @@
 
     hamburger.addEventListener('click', () => toggle());
     overlay.addEventListener('click', () => toggle(false));
+    const closeBtn = document.querySelector('.mobile-drawer-close');
+    if (closeBtn) closeBtn.addEventListener('click', () => toggle(false));
     drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') toggle(false); });
   }
